@@ -1,0 +1,74 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Upload Imagem</title>
+    <link href="~/Content/jquery.fileupload.css" rel="stylesheet" />
+
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/estilo.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/landing-page.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/jquery.ui.widget.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.fileupload.js"></script>
+
+    <script type="text/javascript">
+	$(document).ready(function () {
+		$('#fileupload').fileupload({
+			dataType: 'json',
+			url: '/Process/UploadFiles',
+			autoUpload: true,
+			done: function (e, data) {
+				$('.file_name').html(data.result.name);
+				$('.file_type').html(data.result.type);
+				$('.file_size').html(data.result.size);
+			}
+		}).on('fileuploadprogressall', function (e, data) {
+			var progress = parseInt(data.loaded / data.total * 100, 10);
+			$('.progress .progress-bar').css('width', progress + '%');
+		});
+	});
+    </script>
+</head>
+<body background="~/img/intro-bg.jpg" style="background-repeat:no-repeat; background-position:center; background-size:cover;">
+        <div class="container" id="uploadimagem">
+            <span class="btn btn-success fileinput-button">
+                <i class="glyphicon glyphicon-plus"></i>
+                <span>Add files...</span>
+                <input id="fileupload" type="file" name="files[]" multiple>
+            </span>
+            <br />
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                    <span class="sr-only">0% complete</span>
+                </div>
+            </div>
+            <br />
+            <div class="btn-group-justified col-lg-12" id="uploadimagem">
+                <div class="col-lg-4">
+                    <label class="file_name"></label>
+                </div>
+                <div class="col-lg-4">
+                    <label class="file_type"></label>
+                </div>
+                <div class="col-lg-4">
+                    <label class="file_size"></label>
+                </div>
+            </div>
+            <br />
+            <div>
+                <a class="btn btn-info col-lg-12" href="/Process/Checar#services">Checar Doença</a>
+            </div>
+            
+        </div>
+</body>
+</html>

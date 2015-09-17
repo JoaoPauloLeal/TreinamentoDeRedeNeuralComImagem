@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Checked";
+}
+
+<a name="services"></a>
+<div class="container">
+    @if (@ViewBag.Doenca == 1)
+            {
+        <br />
+        <br />
+        <h3>Cercosporiose (Cercospora zeae-maydis)</h3>
+        <div align="justify">
+            <h4>Importância e Distribuição:</h4>
+            <p>A doença foi observada inicialmente no Sudoeste do estado de Goiás em Rio Verde, Montividiu, Jataí e Santa Helena, no ano de 2000. Atualmente a doença está presente em praticamente todas as áreas de plantio de milho no Centro Sul do Brasil. A doença ocorre com alta severidade em cultivares suscetíveis, podendo as perdas serem superiores a 80%.</p>
+            <h4>Sintomas:</h4>
+            <p>
+                Os   sintomas    caracterizam-se    por   manchas     de   coloração   cinza, predominantemente retangulares, com as lesões desenvolvendo-se paralelas
+                às nervuras. Com o desenvolvimento dos sintomas da doença, pode ocorrer necrose de todo o tecido foliar (Figura 1). Em situações de ataques mais severos, as plantas tornam-se mais predispostas às infecções por patógenos no colmo, resultando em maior incidência de acamamento de plantas.
+            </p>
+            <h4>Epidemiologia:</h4>
+            <p>
+                A disseminação ocorre através de esporos e de restos de cultura levados pelo vento e por respingos de chuva. Os restos de cultura são, portanto, fonte de inóculo local e, também, para outras áreas de plantio. A ocorrência de
+                temperaturas entre 25 e 30oC e de umidade relativa do ar superior a 90% são
+                consideradas condições ótimas para o desenvolvimento da doença.
+            </p>
+            <h4>Manejo da Doença:</h4>
+            <p>
+                A principal medida de manejo da cercosporiose é a utilização de cultivares resistentes. Além disso, recomenda-se: evitar a permanência de restos da cultura de milho em áreas em que a doença ocorreu com alta severidade para reduzir o inóculo do patógeno na área; realizar a rotação com culturas não
+                hospedeiras como a soja, o sorgo, o girassol, o algodão e outras, uma vez que o milho é o único hospedeiro de C. zeae-maydis; para evitar o aumento do potencial de inóculo de C. zeae-maydis, deve-se evitar o plantio seguido de milho na mesma área; plantar cultivares diferentes em uma mesma área e em cada época de plantio; realizar adubações de acordo com as recomendações técnicas para evitar desequilíbrios nutricionais nas plantas, favoráveis ao desenvolvimento      desse     patógeno,      principalmente      a   relação nitrogênio/potássio. Para que essas medidas sejam eficientes, recomenda-se a sua aplicação regional (em macrorregiões) para evitar que a doença volte a se manifestar a partir de inóculo trazido pelo vento de lavouras vizinhas infectadas. Em áreas com plantio de cultivares suscetíveis e sob condições ambientais favoráveis para a ocorrência da doença, o controle químico deve ser avaliado como uma opção para o manejo da doença.
+            </p>
+        </div>
+    }
+    @if (@ViewBag.Doenca == 0)
+            {
+        <br />
+        <br />
+        <h3>Mancha branca (etiologia indefinida)</h3>
+        <div align="justify">
+            <h4>Importância e Distribuição:</h4>
+            <p>A mancha branca é considerada, atualmente, uma das principais doenças da cultura do milho no Brasil, estando presente em praticamente todas as regiões de plantio de milho no Brasil. As perdas na produção podem ser superiores a 60% em situações de ambiente favorável e de uso de cultivares suscetíveis.</p>
+            <h4>Sintomas:</h4>
+            <p>
+                As lesões da mancha branca são, inicialmente, circulares, aquosas e verde claras (anasarcas). Posteriormente, passam a necróticas, de cor palha, circulares a elípticas, com diâmetro variando de 0,3 a 1cm (Figura 2). Geralmente, são encontradas dispersas no limbo foliar, mas iniciam-se na ponta da folha progredindo para a base, podendo coalescer. Em geral, os sintomas   aparecem     inicialmente nas  folhas  inferiores, progredindo rapidamente para as superiores, sendo mais severos após o pendoamento. Sob condições de ataque severo, os sintomas da doença podem ser observados também na palha da espiga. Em condições de campo, os sintomas não ocorrem, normalmente, em plântulas de milho.
+            </p>
+            <h4>Epidemiologia:</h4>
+            <p>
+                A mancha branca é favorecida por temperaturas noturnas amenas (15 a 200C), elevada umidade relativa do ar (>60%) e elevada precipitação. Os plantios tardios favorecem elevadas severidades da doença devido à ocorrência dessas condições climáticas durante o florescimento da cultura, fase na qual as plantas são mais sensíveis ao ataque do patógeno e os sintomas são mais severos.
+            </p>
+            <h4>Manejo da Doença:</h4>
+            <p>
+                A principal medida recomendada para o manejo da mancha branca é o uso de cultivares resistentes. Atualmente, estão disponíveis no mercado cultivares que apresentam excelente nível de resistência a essa doença, como as cultivares da Embrapa BRS 1010 e BRS 1035. Outra medida importante para o manejo da enfermidade é a escolha da época de plantio. Deve-se optar por épocas de semeadura cujas condições climáticas que favoreçam a doença não coincidam com a fase de florescimento da cultura. Nas regiões Centro-Oeste e Sudeste, os plantios tardios realizados a partir da segunda quinzena de novembro até o final de dezembro favorecem a ocorrência da doença em elevadas severidades. Portanto, recomenda-se, sempre que possível, antecipar a época do plantio para a segunda quinzena de outubro ou o início de novembro. O controle químico também é uma medida viável nas situações em que são utilizadas cultivares suscetíveis, em regiões cujas condições climáticas são favoráveis ao desenvolvimento da doença.
+            </p>
+        </div>
+            }
+            @if (@ViewBag.Doenca == -1)
+            {
+                <h1 class="text-danger">ERRO NA IMAGEM</h1>
+            }
+            <a class="btn btn-success col-lg-12" href="~/Process/Upload">Testar outra Imagem</a>
+        </div>
+<label>@ViewBag.Retorno</label>
+

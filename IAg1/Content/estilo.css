@@ -1,0 +1,16 @@
+﻿@charset "utf-8";
+@font-face {
+	font-family: 'FonteLogo';
+	src: url("../fonts/partout.ttf");
+}
+#logo {
+	font-family: 'FonteLogo', sans-serif;
+	font-size: 50px;
+}
+#titulo {
+	font-family: 'FonteLogo', sans-serif;
+	font-size: 85px;
+}
+#uploadimagem {
+    background-color: rgba(0, 255, 33, 0.22);
+}
