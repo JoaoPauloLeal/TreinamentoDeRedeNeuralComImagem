@@ -4,17 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using IAg1.Models;
-using System.Drawing;
-using System.IO;
 
 namespace IAg1.Controllers
 {
-    public class HomeController : Controller
+    public class TesteController : Controller
     {
-        // GET: Home
-        public ActionResult Index()
+        // GET: Teste
+        public ActionResult Teste()
         {
-            
+            Binarios.testando();
+            ViewBag.matriz = Binarios.matriz1;
             return View();
         }
     }

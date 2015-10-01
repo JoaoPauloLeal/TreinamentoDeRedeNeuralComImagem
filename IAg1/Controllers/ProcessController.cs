@@ -16,8 +16,8 @@ namespace IAg1.Controllers
         {
             Binarios.FotoArray();
             Binarios.ExecutarAprendizado();
-            List<float> blist = new List<float>();
-            List<float> pesos = new List<float>();
+            /*List<float> blist = new List<float>();
+            List<float> pesos = new List<float>();*/
 
             return View();
         }
@@ -25,42 +25,57 @@ namespace IAg1.Controllers
         {
             #region TestarImagem
 
-            List<float> blist = new List<float>();
-            List<float> pesos = new List<float>();
+            float[,] blist = new float[100, 100];
+            List<float> p = new List<float>();
+            List<float> b = new List<float>();
             try
             {
             string path = Path.Combine(Server.MapPath("~/App_Data"), Path.GetFileName(NomeImagem));
             Bitmap image = new Bitmap(path, true);
             Bitmap novo = new Bitmap(image.Width, image.Height);
+            float altura = image.Width / 100;
+            float largura = image.Height / 100;
 
-            Console.WriteLine(image.PixelFormat);
-            for (int x = 0; x < image.Width; x++)
-            {
-                for (int y = 0; y < image.Height; y++)
+            float grayScale = 0;
+                for (int i = 0; i < 100; i++)
                 {
-                    /*Color clr = image.GetPixel(x, y);
-                    Color newclr = Color.FromArgb(0, clr.B, 0);
-                    image.SetPixel(x, y, newclr);*/
-                    Color originalColor = image.GetPixel(x, y);//pega a cor original
-                    int grayScale = (int)((originalColor.R * 0.3) + (originalColor.G * 0.59) + (originalColor.B * 0.11));
-                    if (grayScale < 110 && grayScale > -1)
+                    for (int cc = 0; cc < 100; cc++)
                     {
-                        blist.Add(0);
-                    }
-                    if (grayScale > 110 && grayScale < 256)
-                    {
-                        blist.Add(1);
-                    }
-                    Color CorEmEscalaDeCinza = Color.FromArgb(grayScale, grayScale, grayScale);
-                    novo.SetPixel(x, y, CorEmEscalaDeCinza);
-                    pesos.Add(0);
-                }
-            }
-            novo.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\temp\newn1.png");
+                        for (int x = (i * (int)altura); x < ((i + 1) * (int)altura); x++)
+                        {
+                            for (int y = (cc * (int)largura); y < ((cc + 1) * (int)largura); y++)
+                            {
+                                Color originalColor = image.GetPixel(x, y);//pega a cor original
+                                grayScale = (int)((originalColor.R * 0.3) + (originalColor.G * 0.59) + (originalColor.B * 0.11));
+                                if (grayScale >= 0 && grayScale < 170)
+                                {
+                                    p.Add(0);
+                                }
+                                if (grayScale > 170)
+                                {
+                                    b.Add(1);
+                                }
 
-            #endregion
-            #region Teste-0e1-
-            float retorno = Binarios.Testar(blist);
+                            }
+
+                        }
+                        if (p.Count() > b.Count())
+                        {
+                            blist[cc, i] = 0;
+                        }
+                        if (b.Count() > p.Count())
+                        {
+                            blist[cc, i] = 1;
+                        }
+                        p.Clear();
+                        b.Clear();
+
+                    }
+                }
+
+                #endregion
+                #region Teste-0e1-
+                float retorno = Binarios.Testar(blist);
             if (retorno == 1)
             {
                 ViewBag.Doenca = 1;

@@ -163,6 +163,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProcessController.cs" />
+    <Compile Include="Controllers\TesteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -184,6 +185,7 @@
     <Content Include="Views\Process\Upload.cshtml" />
     <Content Include="Views\Process\Checar.cshtml" />
     <Content Include="Views\ERRO.cshtml" />
+    <Content Include="Views\Teste\Teste.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
